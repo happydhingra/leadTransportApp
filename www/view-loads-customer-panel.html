@@ -1,0 +1,129 @@
+
+<div class="gradient" ng-controller="load_details"> 
+  
+  <!-- cd-panel -->
+  
+  <div class="header-bg">
+          <div class="header-cell"><a ng-href="#!/dashboard"> <i class="ion-chevron-left"></i></a></div>
+    <div class="header-cell">Load Details</div>
+  </div>
+  <div class="grid-full" >
+    <div class="home-container">
+      <div class="grid-home text-center">
+        <div class="login-top-icon"> <img src="assets/images/logo.png"/> </div>
+      </div>
+      <div class="grid" ng-repeat="load_detail in load_details">
+        <!--{{load_detail}}-->
+        <div class="load-background-white">
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Load No </div>
+            <div class="load-grid-form-right">
+              <div class="">L{{load_detail.id}} </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Vehile Type </div>
+            <div class="load-grid-form-right">
+              <div class="">Car</div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> No. of Vehiles </div>
+            <div class="load-grid-form-right">
+              <div class="">{{load_detail.number_vehicles}} </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Posted On : </div>
+            <div class="load-grid-form-right">
+              <div class="">{{load_detail.created_date}}</div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Pickup Date </div>
+            <div class="load-grid-form-right">
+              <div class="">{{load_detail.pickup_date}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="load-detail-heading">
+          <div class="load-detail-heading-div">
+            <div class="load-content"> Pickup Details </div>
+          </div>
+        </div>
+        <div class="load-background-white">
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Name </div>
+            <div class="load-grid-form-right">  {{load_detail.pickup_name}} </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Email Id</div>
+            <div class="load-grid-form-right">  {{load_detail.pickup_email}} </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Mobile </div>
+            <div class="load-grid-form-right">  {{load_detail.pickup_mobile}} </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Address </div>
+            <div class="load-grid-form-right">  {{load_detail.pickup_address}}, {{load_detail.pickup_zipcode}} </div>
+          </div>
+        </div>
+        <div class="load-detail-heading">
+          <div class="load-detail-heading-div">
+            <div class="load-content"> Drop Off Details </div>
+          </div>
+        </div>
+        <div class="load-background-white">
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Name </div>
+            <div class="load-grid-form-right"> {{load_detail.drop_name}} </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Email Id</div>
+            <div class="load-grid-form-right"> {{load_detail.pickup_address}} </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Mobile </div>
+            <div class="load-grid-form-right"> {{load_detail.drop_mobile}} </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Address </div>
+            <div class="load-grid-form-right">{{load_detail.drop_address}}, {{load_detail.drop_zipcode}}</div>
+          </div>
+        </div>
+        <div class="load-detail-heading">
+          <div class="load-detail-heading-div">
+            <div class="load-content"> Quotation Details </div>
+          </div>
+        </div>
+        <div class="load-background-white">
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Amount </div>
+            <div class="load-grid-form-right" ng-if="load_detail.amount == 'Not defined'"> {{load_detail.amount}} </div>
+            <div class="load-grid-form-right" ng-if="load_detail.amount"> {{load_detail.amount}} </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Remarks</div>
+            <div class="load-grid-form-right"> {{load_detail.remarks}} </div>
+          </div>
+        </div>
+        <!--{{load_detail.load_status_id}}-->
+        <div class="fee-break-btn-table" ng-if="load_detail.load_status_id == '6'">
+            <div class="fee-break-btn-table-cell2">
+                <div class="continue">
+                    <button class="cbutton cbutton--effect-boris" ng-click="load_reason('accept')"> Accept </button>
+                </div>
+            </div>
+            <div class="fee-break-btn-table-cell2">
+                <div class="input-group-signup3">
+                    <button class="cbutton cbutton--effect-boris" ng-click="load_reason('reject')"> Reject </button>
+                </div>
+            </div>
+        </div>
+      </div>
+        <!-- ng-if Handling-->
+        
+    </div>
+  </div>
+</div>

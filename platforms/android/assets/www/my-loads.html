@@ -1,0 +1,240 @@
+<div class="gradient">
+    <!-- cd-panel -->
+
+    <div class="header-bg">
+        <div class="header-cell"><a ng-href="#!/dashboard"> <i class="ion-chevron-left"></i></a></div>
+        <div class="header-cell">My Loads</div>
+    </div>
+    <div class="grid-full" ng-controller="myload">
+        <div class="home-container">
+            <div class="grid-home text-center">
+                <div class="login-top-icon"> <img src="assets/images/logo.png"/> </div>
+            </div>
+            <div class="grid">
+                <div class="input-group" style="margin-bottom:15px;">
+                    <span class="input-group-addon2" id="basic-addon1"> <i class="ion-ios-search-strong"></i></span> 
+                    <!--<form class="searchbox" style="padding:0;">-->
+                    <form name="userForm" class="searchbox" style="padding:0;" ng-click="submitForma()" method="post">
+                        <input type="search" placeholder="Search" ng-model="searching" id="search" ng-keyup="search()" autocomplete="off">
+                        <div class="clear" style="clear:both"></div>
+                    </form>
+                    <div class="search-scolling-div">
+                        <ul class="searchdata" ng-repeat="x in autosearch" ng-click="load_details(x.id);">
+                            <li>{{x.drop_name}} </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!--Status Types:- '0'=inactive,
+                '1'=inprogress,
+                '2'=completed,
+                '3'=rejected 
+                '4'=accepted,
+                '5'=pending,
+                '6'=quote recieved -->
+                <div class="load-background-white load-grid-form"  ng-if="message">
+                    <div class="load-grid-form-left"> {{message}}</div>
+
+                </div>
+                <div class="load-background-white" ng-repeat="myload in result">
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Load No </div>
+                        <div class="load-grid-form-right">
+                            <div class="">{{myload.l_id}} </div>
+                        </div>
+                    </div>
+                    <!--{{myload}}-->
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Customer Name </div>
+                        <div class="load-grid-form-right">
+                            <div class="">Larry Martinez </div>
+                        </div>
+                    </div>
+
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Amount </div>
+                        <div class="load-grid-form-right">
+                            <div class="">{{myload.amount}} </div>
+                        </div>
+                    </div>
+
+
+                    <div class="load-grid-form-add" ng-if="role_type === '3'">
+                        <div class="circle-main">
+                            <div class="load-circle-relative">
+                                <div class="load-greencircle-absolute"></div>
+                                <div class="load-line-absolute"></div>
+                                <div class="load-orangecircle-absolute"></div>
+                            </div>
+                        </div>
+                        <div class="load-grid-form2-parent" >
+                            <div class="load-grid-form2-left-full"> {{myload.pickup_address}}, {{myload.pickup_zipcode}} </div>
+                            <div class="load-grid-form2-left-full"> {{myload.drop_address}}, {{myload.drop_zipcode}}</div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="load-grid-form-add" ng-if="role_type === '4'"  ng-click="navigate(myload.id)">
+                        <div class="circle-main">
+                            <div class="load-circle-relative">
+                                <div class="load-greencircle-absolute"></div>
+                                <div class="load-line-absolute"></div>
+                                <div class="load-orangecircle-absolute"></div>
+                            </div>
+                        </div>
+                         <div class="load-grid-form2-parent">
+                            <div class="load-grid-form2-left-full"> {{myload.pickup_address}}, {{myload.pickup_zipcode}} </div>
+                            <div class="load-grid-form2-left-full"> {{myload.drop_address}}, {{myload.drop_zipcode}}</div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Status </div>
+                        <div class="load-grid-form-right">
+                            <div class="">{{myload.load_status}} </div>
+                        </div>
+                    </div>
+                    <!--{{myload}}-->
+                    <!--start for consumer panel-->
+                    <span ng-if="role_type === '3'">
+                        <div class="fee-break-btn-table" ng-if="myload.load_status_id == '1'">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue" ng-click="load_details(myload.id)">
+                                    <button class="cbutton cbutton--effect-boris"> Load Details </button>
+                                </div>
+                            </div>
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="input-group-signup2">
+                                    <!--{{myload}}-->
+                                    <button class="cbutton cbutton--effect-boris" ng-click="driver_details(myload.id, myload.driver_id);"> Driver Details </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fee-break-btn-table" ng-if="myload.load_status_id == '3'">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue" >
+                                    <button class="cbutton cbutton--effect-boris"> Load Details </button>
+                                </div>
+                            </div>
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="input-group-signup2">
+                                    <button class="cbutton cbutton--effect-boris"> Duplicate </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fee-break-btn-table" ng-if="myload.load_status_id == '5' || myload.load_status_id == '6'">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue" >
+                                    <button class="cbutton cbutton--effect-boris" ng-click="load_details(myload.id)"> Load Details </button>
+                                </div>
+                            </div>
+                            <!--                        <div class="fee-break-btn-table-cell2">
+                                                        <div class="input-group-signup2">
+                                                            <button class="cbutton cbutton--effect-boris"> Duplicate </button>
+                                                        </div>
+                                                    </div>-->
+                        </div>
+                    </span>
+                    <!-- end for Consumer-->
+
+
+                    <!-- Start for Driver-->
+                    <span ng-if="role_type === '4'">
+                        <div class="fee-break-btn-table" ng-if="myload.load_status_id == '1'">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue" ng-click="mark_delay(myload.id)">
+                                    <button class="cbutton cbutton--effect-boris"> Mark Delay </button>
+                                </div>
+                            </div>
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="input-group-signup2">
+                                    <button class="cbutton cbutton--effect-boris" ng-click="load_details(myload.id)"> View Details </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fee-break-btn-table" ng-if="myload.load_status_id == '2'">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue" >
+                                    <button class="cbutton cbutton--effect-boris" ng-click="load_details(myload.id)"> View Details </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fee-break-btn-table" ng-if="myload.load_status_id == '3'">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue" >
+                                    <button class="cbutton cbutton--effect-boris"> Load Details </button>
+                                </div>
+                            </div>
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="input-group-signup2">
+                                    <button class="cbutton cbutton--effect-boris"> Duplicate </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fee-break-btn-table" ng-if="myload.load_status_id == '5' || myload.load_status_id == '6'">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue" >
+                                    <button class="cbutton cbutton--effect-boris" ng-click="load_details(myload.id)"> Load Details </button>
+                                </div>
+                            </div>
+                            <!--                        <div class="fee-break-btn-table-cell2">
+                                                        <div class="input-group-signup2">
+                                                            <button class="cbutton cbutton--effect-boris"> Duplicate </button>
+                                                        </div>
+                                                    </div>-->
+                        </div>
+                    </span>
+
+
+                </div>
+
+            </div>
+            <div class="input-group-signup3">
+                <button> Back </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+//    $('.file-input').change(function () {
+//        var curElement = $(this).parent().parent().find('.image');
+//        console.log(curElement);
+//        var reader = new FileReader();
+//
+//        reader.onload = function (e) {
+//            // get loaded data and render thumbnail.
+//            curElement.attr('src', e.target.result);
+//        };
+//
+//        // read the image file as a data URL.
+//        reader.readAsDataURL(this.files[0]);
+//    });
+</script> 
+<script>
+//    jQuery(document).ready(function ($) {
+//        //open the lateral panel
+//        $('.cd-btn').on('click', function (event) {
+//            event.preventDefault();
+//            $('.cd-panel').addClass('is-visible');
+//        });
+//        //clode the lateral panel
+//        $('.cd-panel').on('click', function (event) {
+//            if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
+//                $('.cd-panel').removeClass('is-visible');
+//                event.preventDefault();
+//            }
+//        });
+//    });
+</script>
+<!--<script type="text/javascript" src="assets/js/search.js"></script>-->
+
+<script>
+    $(document).ready(function () {
+        $("#search").click(function () {
+            $(".search-scolling-div").toggle();
+        });
+    });
+</script>

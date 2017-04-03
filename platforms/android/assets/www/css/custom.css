@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 6, 2017, 10:09:45 AM
+    Author     : rajat
+*/
+
+.custom_error{
+    color: red;
+    padding: 15px;
+    margin: 15px;
+}
+.custom_success{
+    
+    color: red;
+    padding: 15px;
+    margin: 15px;
+}
+.validation_error{
+    color:red;
+    font-weight: bold;
+}
+
+.message_success{
+    color: greenyellow;
+    padding: 15px;
+    margin: 15px;
+}
+
+.hide{
+    display: none
+}
+
+
+
+/* Put your css in here */
+
+.angular-google-map-container {
+  height: 400px;
+  margin-bottom: 15px;
+}
+
+.panel-primary {
+  padding: 15px;
+}

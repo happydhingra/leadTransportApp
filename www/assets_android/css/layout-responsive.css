@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+/**
+ *
+ * @Author: Pooran Pawar <pooranpawar@gmail.com>
+ * @Date Created: 12.03.2016 
+**/
+
+
+
+@media (max-width:1024px) {
+}
+@media (max-width:991px) {
+}
+@media (max-width:768px) {
+.login-top-icon img{ width:150px;}
+}
+@media (max-width:740px) {
+
+}
+@media (max-width:414px) {
+}
+@media (max-width:375px) {
+}
+@media (min-width: 375px) and (max-width: 414px) {
+}
+@media (min-width: 220px) and (max-width: 480px) {
+}
+@media (max-width:600px) {
+}
+@media (min-width: 220px) and (max-width: 375px) {
+.splash-logo-text{font-size:70px;}
+.splash-cell img{ width:110px;}
+.splash2 .splash-cell img{ width:200px;}
+.login-top-text{font-size:70px;}
+}
+@media (min-width: 220px) and (max-width: 320px) {
+.login-top-icon img{ width:125px;}
+}
+@media (min-width: 321px) and (max-width: 414px) {
+.login-top-icon img{ width:150px;}
+}
+@media (max-width:414px) {
+}
+@media (max-width:384px) {
+}
+
+
+@media (min-width: 375px) and (max-width:414px) {
+.dashboard-box {width:100%;float: left;}
+.dashboard-box h1 {float: left;width: 100%;text-align: center;font-size: 16px;color: #fff;margin: 0;line-height: 40px;font-weight: normal;}
+.icon-home {text-align: center;font-size: 40px;color: #fff;float: left;width: 100%;line-height: 38px;}
+.refer-display { display: inline-block; margin: 0px 10px 15px 10px; }
+.refer-green { padding: 13px; min-width:70px; }
+.refer-copy { padding: 13px; min-width:70px; }
+.refer-modal-bottom h4 { margin: 0; color: #d22924; font-size: 13px; text-align: center; padding: 0 30px 5px; font-weight: normal; }
+.refer-dashboard h3 { margin: 0; color: #ff9220; font-size: 13px; text-align: center; padding: 15px 30px 15px; font-weight: normal; }
+.refer-dashboard h2 { margin: 0; color: #11b612; font-size: 13px; text-align: center; padding: 0 30px 10px; font-weight: lighter; }
+
+
+}
+
+@media (min-width: 220px) and (max-width:370px) {
+.dashboard-box { width: 100%; float: left; }
+.dashboard-box h1 { float: left; width: 100%; text-align: center; font-size: 14px; color: #fff; margin: 0; line-height: 40px; font-weight: normal; }
+.icon-home { text-align: center; font-size: 35px; color: #fff; float: left; width: 100%; line-height: 38px; }
+.refer-display { display: inline-block; margin: 0px 10px 15px 10px; }
+.refer-green { padding: 13px; min-width:70px; }
+.refer-copy { padding: 13px; min-width:70px; }
+.refer-modal-bottom h4 { margin: 0; color: #d22924; font-size: 13px; text-align: center; padding: 0 30px 5px; font-weight: normal; }
+.refer-dashboard h3 { margin: 0; color: #ff9220; font-size: 13px; text-align: center; padding: 15px 30px 15px; font-weight: normal; }
+.refer-dashboard h2 { margin: 0; color: #11b612; font-size: 13px; text-align: center; padding: 0 30px 10px; font-weight: lighter; }
+}
+
+
+
+
+
+
+

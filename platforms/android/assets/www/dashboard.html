@@ -1,0 +1,83 @@
+<div id="st-container" class="st-container" ng-controller="dashboard"> 
+    <!-- 	example menus  -->
+    <div ng-include='"side-menu.html"'></div>
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+            <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+
+                <div class="header-bg">
+                    <div id="st-trigger-effects" class="header-cell"><i  data-effect="st-effect-1" class="ion-navicon cd-btn button"></i></div>
+                    <div class="header-cell lato">
+                        <div class="header-cell-font"> Dashboard</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="login-top-bg">
+                    <div class="login-top-icon"> <img src="assets/images/logo.png"/> </div>
+                    <div class="splash-logo-text"></div>
+                </div>
+                <div class="home-container">
+                    <div class="grid-home text-center">
+                        <div class="home-dashboard">
+                            <div class="dashboard-box light-green">
+                                <div class="icon-home"> <i class="fa fa-truck"></i> </div>
+                                <h1> Total Loads </h1>
+                                <h2>{{total_load}}</h2>
+                                 <h2 ng-if="!total_load">0</h2>
+                            </div>
+                            <div class="dashboard-box skyblue">
+                                <div class="icon-home"> <i class="fa fa-line-chart"></i> </div>
+                                <h1> Load Inprogress</h1>
+                                <h2>{{load_progress}}</h2>
+                                <h2 ng-if="!load_progress">0</h2>
+                            </div>
+                            <div class="dashboard-box orange">
+                                <div class="icon-home"> <i class="fa fa-check-square-o"></i> </div>
+                                <h1>Completed Loads </h1>
+                                <h2>{{load_completed}}</h2>
+                              
+                                <h2 ng-if="!load_completed">0</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cpa-form-color" >
+                        <div class="cpa-upload-bg">
+                            <div class="cpa-upload-outer">
+                                <div class="cpa-upload-padding-head">
+                                    <div class="cpa-upload-outer-cell-left2"> S. No.</div>
+                                    <div class="cpa-upload-outer-cell-left"> Load No.</div>
+                                    <div class="cpa-upload-outer-cell-left">Satus</div>
+                                </div>
+                            </div>
+                            <div class="cpa-upload-outer" ng-if="load">
+                                <!--{{load}}-->
+                                <div class="cpa-no-record">No Record Found</div>
+                              
+                                
+                            </div>
+                            <div class="cpa-upload-outer" ng-repeat="load in loads track by $index">
+                                <!--{{load.id}}-->
+                                <div class="cpa-upload-padding" ng-click="load_details(load.id)">
+                                    <div class="cpa-upload-outer-cell-left2"> {{$index + 1}}</div>
+                                    <div class="cpa-upload-outer-cell-left">{{load.l_id}}</div>
+                                    <div class="cpa-upload-outer-cell-left">{{load.load_status}}</div>
+                                    
+                                </div>
+                               
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /st-content-inner --> 
+    </div>
+    <!-- /st-content --> 
+</div>
+<!-- /st-pusher -->
+<script src="assets/plugin/menu-slider/js/classie.js"></script> 
+<script src="assets/plugin/menu-slider/js/sidebarEffects.js"></script>

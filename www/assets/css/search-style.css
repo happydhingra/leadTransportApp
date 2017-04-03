@@ -1,0 +1,124 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+#search-autocomplete{top:100% !important;z-index:2;}
+.searchbox {
+	width: 100%;
+    position: relative;
+    margin: 0% 0%;
+}
+.searchbox input[type=search] {
+  width: 100%;
+  border: 0px solid #eee;
+  padding: 9px 0px;
+  -webkit-appearance: none;
+}
+
+
+.searchbox .search-autocomplete {
+  display: none;
+  position: absolute;
+  top:100%;
+  left: 0;
+  right: 0;
+  font-size: 0.9em;
+  border: 1px solid #eee;
+  border-top: none;
+  background: #fff;
+  box-shadow: 0 4px 4px rgba(10, 10, 10, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+}
+.searchbox .search-autocomplete ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.searchbox .search-autocomplete li, .searchbox .search-autocomplete a {
+  display: block;
+}
+.searchbox .search-autocomplete li {
+  border-bottom: 1px solid #eee;
+  color: #0074D9;
+}
+.searchbox .search-autocomplete li:last-of-type {
+  border-bottom: none;
+}
+.searchbox .search-autocomplete li:hover, .searchbox .search-autocomplete li:active {
+  background: #fafafa;
+  color: #FF4136;
+}
+.searchbox .search-autocomplete a {
+  padding: 7px 10px;
+  color: inherit;
+  text-decoration: none;
+}
+.searchbox .search-autocomplete .search-description {
+  font-size: 0.8em;
+  color: #999;
+  font-weight: 300;
+  display: block;
+}
+.searchbox .search-autocomplete .loader, .searchbox .search-autocomplete .load-more, .searchbox .search-autocomplete .no-results, .searchbox .search-autocomplete .error {
+  padding: 7px 10px;
+  text-align: center;
+}
+.searchbox .search-autocomplete .load-more {
+  font-size: 0.8em;
+  color: #0074D9;
+}
+.searchbox .search-autocomplete .error, .searchbox .search-autocomplete .error:hover, .searchbox .search-autocomplete .error:active {
+  color: #FF4136;
+}
+.searchbox .search-autocomplete .no-results, .searchbox .search-autocomplete .no-results:hover, .searchbox .search-autocomplete .no-results:active {
+  color: #999;
+}
+
+/* SpinKit by Tobias Ahlit
+/* https://github.com/tobiasahlin/SpinKit
+/**********************************************************/
+.spinner {
+  margin: auto;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 14px;
+  height: 14px;
+  background-color: #0074D9;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}

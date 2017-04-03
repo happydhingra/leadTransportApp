@@ -1,0 +1,44 @@
+<div class="st-menu st-effect-1">
+    <div class="menu-logo"> <img src="assets/images/logo.png" width="100" /> </div>
+    <!----- Logo---->
+    <div class="menu-bg" ng-controller="controls">
+        <ul>
+            <li  ng-click="dashboard()">
+                <div class="menu-li-left"> <img src="assets/images/home.png"> </div>
+                <div class="menu-li-right"> Dashboard </div>
+            </li>
+            <li  ng-click="myprofile()"> 
+                <div class="menu-li-left"> <img src="assets/images/doc.png"> </div>
+                <div class="menu-li-right" ng-click="isShowRightContent = !isShowRightContent;isShowSideBarMobile = false;"> My Profile </div>
+            </li>
+            <li ng-click="myload()">
+                <div class="menu-li-left">
+                    <img src="assets/images/refer.png"> 
+                </div>
+                <div class="menu-li-right" >My Loads</div>
+            </li>
+<!--            <li ng-click="add_load()">
+                <div class="menu-li-left">
+                    <img src="assets/images/refer.png"> 
+                </div>
+                <div class="menu-li-right" >Add Load</div>
+            </li>-->
+            <li  ng-click="mypayments()">
+                <div class="menu-li-left"><img src="assets/images/livehelp.png"> </div>
+                <div class="menu-li-right">My Payments </div>
+            </li>
+            <li  ng-click="changepassword()">
+                <div class="menu-li-left"><img src="assets/images/notification.png"> </div>
+                <div class="menu-li-right"> Change Password </div>
+            </li>
+            <li  ng-click="notification()">
+                <div class="menu-li-left"> <img src="assets/images/termanduse.png"></div>
+                <div class="menu-li-right"> Notifications </div>
+            </li>
+            <li  ng-click="logout()">
+                <div class="menu-li-left"> <img src="assets/images/signout.png"></div>
+                <div class="menu-li-right"> Logout </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="gradient" ng-controller="driver_details"> 
+    <!-- cd-panel -->
+    <div class="header-bg" >
+        <div class="header-cell"><a ng-href="#!/myload"> <i class="ion-chevron-left"></i></a></div>
+        <div class="header-cell">View Driver Detail </div>
+    </div>
+    <div class="grid-full" >
+        <div class="home-container">
+            <!--            <div class="grid-home text-center">
+                            <div class="login-top-icon"> <img src="assets/images/logo.png"/> </div>
+                            <div class="profile-profile">
+                                <div class="image-outer">
+                                    <div class="imageWrapper">
+                                        <button class="file-upload">
+                                            <input type="file" class="file-input">
+                                            <i class="ion-ios-compose-outline"></i>
+                                        </button>
+                                        <img class="image" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS_hBhqDSY-5AM6yOnPGRYYl8cP2Z3J-6w57QWPS3L0FQtTA1J9"> </div>
+                                </div>
+                            </div>
+                        </div>-->
+            <div class="grid">
+                <div class="load-detail-heading">
+                    <div class="load-detail-heading-div">
+                        <div class="load-content" > Driver Details </div>
+                    </div>
+                </div>
+                <div class="load-background-white">
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Driver Name </div>
+                        <div class="load-grid-form-right"> {{result.first_name}} {{result.last_name}} </div>
+                    </div>
+
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Email Id</div>
+                        <div class="load-grid-form-right"> rahul@gmail.com </div>
+                    </div>
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Mobile </div>
+                        <div class="load-grid-form-right"> 8756738389 </div>
+                    </div>
+                    <!--                    {{result}}
+                                        jkgjkg{{vehicle_name}}-->
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Address </div>
+                        <div class="load-grid-form-right"> {{result.driver.address}} </div>
+                    </div>
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Vehicle Name </div>
+                        <div class="load-grid-form-right"> {{vehicle_name.title}} </div>
+                    </div>
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Vehicle Number </div>
+                        <div class="load-grid-form-right"> {{result.driver.vehicle_number}} </div>
+                    </div>
+                </div>
+                <!--                <div ng-if="">  Inspection Sheet 
+                                    <div class="load-detail-heading">
+                                        <div class="load-detail-heading-div">
+                                            <div class="load-content"> Inspection Sheet </div>
+                                        </div>
+                                    </div>
+                                    <div class="load-background-white">
+                                        <div class="load-grid-form">
+                                            <div class="load-grid-form-left"> <span>:</span> Download </div>
+                                            <div class="load-grid-form-right">
+                                                <input type="button" value="Download Sheet" class="donlod-btn" />
+                                            </div>
+                                        </div>
+                                        <div class="load-grid-form">
+                                            <div class="load-grid-form-left"> <span>:</span> Received On</div>
+                                            <div class="load-grid-form-right"> 24-7-2016</div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                <!--                <div ng-if="">
+                                    <div class="load-detail-heading">
+                                        <div class="load-detail-heading-div">
+                                            <div class="load-content"> Delay in Delivery </div>
+                                        </div>
+                                    </div>
+                                    <div class="load-background-white">
+                                        <div class="load-grid-form">
+                                            <div class="load-grid-form-left"> <span>:</span> Reason </div>
+                                            <div class="load-grid-form-right"> Reason enterd by driver </div>
+                                        </div>
+                                        <div class="load-grid-form">
+                                            <div class="load-grid-form-left"> <span>:</span> Date & Time </div>
+                                            <div class="load-grid-form-right"> 25-8-2016 10:45 AM </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                <div class="load-detail-heading">
+                    <div class="load-detail-heading-div">
+                        <div class="load-content"> Payments Details </div>
+                    </div>
+                </div>
+                <div class="load-background-white">
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Original Amount </div>
+                        <div class="load-grid-form-right"> ${{result.loaddetail.amount}} </div>
+                    </div>
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Extra Charges </div>
+                        <div class="load-grid-form-right" ng-if="result.extra_charges"> {{result.extra_charges}} </div>
+                        <div class="load-grid-form-right" ng-if="!result.extra_charges"> Not Defined </div>
+                    </div>
+                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> <span>:</span> Reason </div>
+                        <div class="load-grid-form-right"  > Reason enterd by driver </div>
+                    </div>
+<!--                    <div class="load-grid-form">
+                        <div class="load-grid-form-left"> Photos </div>
+                        <div class="load-grid-form-right"> &nbsp; </div>
+                    </div>-->
+                    <!--                    <div class="load-grid-form">
+                                            <div class="load-grid-form-right"><img src="assets/images/sky_2.png" width="100px"></div>
+                                        </div>-->
+                </div>
+
+            </div>
+
+            <div class="input-group-signup3" ng-click="fill_inspect();">
+                <button > Fill Inspection </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,239 @@
+<div class="gradient" ng-controller="addload"> 
+    <form  ng-submit="submitForm()" name="userForm" method="post">
+        <div class="header-bg">
+            <div class="header-cell"><a ng-href="#!/dashboard"> <i class="ion-chevron-left"></i></a></div>
+            <div class="header-cell">Add New Load</div>
+        </div>
+        <div class="grid">
+            <div class="home-container">
+                <div class="home-form-color">
+                    <div class="home-form-bg">
+                        <div class="add-load-panel-heding"> Load Details </div>
+                        <div class="add-load-input">
+                            <select class="add-load-input-input" ng-model="userForm.make" ng-change="changedValue(userForm.make)" required>
+                                <option value=''>Please Make</option>
+                                <option value="{{makes.id}}" ng-repeat="makes in make"> {{makes.name}} </option>
+                            </select>
+                        </div>
+                        <div class="add-load-input">
+                            <select class="add-load-input-input" ng-model="userForm.model" required>
+                                <option value=''>Please Model</option>
+                                <option value="{{models.id}}" ng-repeat="models in model"> {{models.model_name}} </option>
+                            </select>
+                        </div>
+                        <div class="add-load-input">
+                            <select class="add-load-input-input" ng-model="userForm.year" required>
+                                <option value=''>Please Year</option>
+                                <option value="{{years.years}}" ng-repeat="years in year"> {{years.years}} </option>
+                            </select>
+                        </div>
+                        <div class="add-load-input">
+                            <!--<input class="add-load-input-input" placeholder="No. of Vechiles">-->
+                            <input type="number" class="add-load-input-input" name="vehicle_number" placeholder="No. of Vehicles" ng-model="vehicle_number" ng-minlength="1" ng-maxlength="6" required />            
+                        </div>
+                        <div ng-messages="userForm.vehicle_number.$invalid && !userForm.vehicle_number.$pristine && userForm.vehicle_number.$error" class="validation_error" role="alert">
+                            <span ng-message="required">You did not enter a No. of Vehicle</span>
+                            <span ng-message="minlength">Vehicle Number is too short</span>
+                            <span ng-message="maxlength">Vehicle Number is too long</span>
+                        </div>
+
+
+                        <div class="add-load-input">
+                            <input type="text" class="add-load-input-input" name="vin_number" placeholder="VIN Number (17 Character + digits)" ng-model="vin_number" ng-minlength="5" ng-maxlength="20" required />            
+                        </div>
+                        <div ng-messages="userForm.vin_number.$invalid && !userForm.vin_number.$pristine && userForm.vin_number.$error" class="validation_error" role="alert">
+                            <span ng-message="required">You did not enter a VIN Number</span>
+                            <span ng-message="minlength">VIN Number is too short</span>
+                            <span ng-message="maxlength">VIN Number is too long</span>
+                        </div>
+
+                        <div class="input-group"> 
+                            <span class="input-group-addon" id="basic-addon1"> 
+                                <i class="ion-android-calendar"></i>
+                            </span>
+                            <div class="input-group-bg">
+                                <input type="datetime-local" ng-model="pick_up_date"  min="{{min_pickdate}}" formatted-date format="dd-MM-yy" class="add-load-input-input" placeholder="yyyy-MM-dd HH:mm:ss" id="date_of_birth" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <span ng-show="userForm.pick_up_date.$dirty && userForm.pick_up_date.$invalid">
+                                <span ng-show="userForm.pick_up_date.$error.required">Start Date is required</span>
+                                <span ng-show="userForm.pick_up_date.$error.min">Start Date should not be less than current date</span>
+                            </span>
+                        </div>
+
+                        <div class="add-load-panel-heding"> Pickup Details </div>
+                        <div class="add-load-input">
+                            <input type="text" class="add-load-input-input" name="pickup_name" placeholder="Name" ng-model="pickup_name" ng-minlength="5" ng-maxlength="20" required />            
+                        </div>
+                        <div ng-messages="userForm.pickup_name.$invalid && !userForm.pickup_name.$pristine && userForm.pickup_name.$error" class="validation_error" role="alert">
+                            <span ng-message="required">You did not enter a name</span>
+                            <span ng-message="minlength">Name is too short</span>
+                            <span ng-message="maxlength">Name is too long</span>
+                        </div>
+
+
+                        <div class="add-load-input">
+                            <input class="add-load-input-input" type="email" placeholder="Email ID" ng-model="pickup_email" name="pickup_email" required maxlength="30" />
+                        </div>
+                        <div ng-messages="userForm.pickup_email.$invalid && !userForm.pickup_email.$pristine && userForm.pickup_email.$error" class="validation_error" role="alert">
+                            <div ng-message="required">You did not enter a email Id</div>
+                            <div ng-message="email">This field must be a valid email address.</div>
+                            <div ng-message="maxlength">This field can be at most 30 characters long.</div>
+                        </div>
+
+                        <div class="add-load-input">
+                            <input class="add-load-input-input" type="number" placeholder="Mobile Number" ng-minlength="10" ng-maxlength="15" name="pickup_mobile_no" ng-model="pickup_mobile_no" ng-required="true">
+                        </div>
+                        <div ng-messages="userForm.pickup_mobile_no.$invalid && !userForm.pickup_mobile_no.$pristine && userForm.pickup_mobile_no.$error" class="validation_error" role="alert">
+                            <div ng-message="required">You did not enter a mobile number</div>
+                            <div ng-message="minlength">This field can be min 10 characters.</div>
+                            <div ng-message="maxlength">This field can be max 15 characters.</div>
+                        </div>
+
+
+                        <div class="add-load-input">
+
+                            <input type="text" class="add-load-input-input" name="pickup_address" placeholder="Address" ng-model="pickup_address" ng-minlength="5" ng-maxlength="50" required />            
+                        </div>
+                        <div ng-messages="userForm.pickup_address.$invalid && !userForm.pickup_address.$pristine && userForm.pickup_address.$error" class="validation_error" role="alert">
+                            <span ng-message="required">You did not enter a address</span>
+                            <span ng-message="minlength">Address is too short</span>
+                            <span ng-message="maxlength">Address is too long</span>
+                        </div>
+
+                        <div class="add-load-input">
+                            <input class="add-load-input-input" type="number" placeholder="Zip Code" ng-minlength="5" ng-maxlength="5" name="pickup_zipcode" ng-model="pickup_zipcode" ng-required="true">
+                        </div>
+                        <div ng-messages="userForm.pickup_zipcode.$invalid && !userForm.pickup_zipcode.$pristine && userForm.pickup_zipcode.$error" class="validation_error" role="alert">
+                            <div ng-message="required">You did not enter a Zip Code.</div>
+                            <div ng-message="minlength">This field must be valid Zip Code.</div>
+                            <div ng-message="maxlength">This field can be at most 5 characters long.</div>
+                        </div>
+
+
+
+
+                        <div class="add-load-panel-heding"> Drop Off Details </div>
+                        <div class="add-load-input">
+                            <input type="text" class="add-load-input-input" name="dropoff_name" placeholder="Name" ng-model="dropoff_name" ng-minlength="5" ng-maxlength="20" required />            
+                        </div>
+                        <div ng-messages="userForm.dropoff_name.$invalid && !userForm.dropoff_name.$pristine && userForm.dropoff_name.$error" class="validation_error" role="alert">
+                            <span ng-message="required">You did not enter a name</span>
+                            <span ng-message="minlength">Name is too short</span>
+                            <span ng-message="maxlength">Name is too long</span>
+                        </div>
+
+
+                        <div class="add-load-input">
+                            <input class="add-load-input-input" type="email" placeholder="Email ID" ng-model="dropoff_email" name="dropoff_email" required maxlength="25" />
+                        </div>
+                        <div ng-messages="userForm.dropoff_email.$invalid && !userForm.dropoff_email.$pristine && userForm.dropoff_email.$error" class="validation_error" role="alert">
+                            <div ng-message="required">You did not enter a email Id</div>
+                            <div ng-message="email">This field must be a valid email address.</div>
+                            <div ng-message="maxlength">This field can be at most 25 characters long.</div>
+                        </div>
+
+                        <div class="add-load-input">
+                            <input class="add-load-input-input" type="number" placeholder="Mobile Number" ng-minlength="10" ng-maxlength="15" name="dropoff_mobile_no" ng-model="dropoff_mobile_no" ng-required="true">
+                        </div>
+                        <div ng-messages="userForm.dropoff_mobile_no.$invalid && !userForm.dropoff_mobile_no.$pristine && userForm.dropoff_mobile_no.$error" class="validation_error" role="alert">
+                            <div ng-message="required">You did not enter a mobile number</div>
+                            <div ng-message="minlength">This field can be min 10 characters.</div>
+                            <div ng-message="maxlength">This field can be max 15 characters.</div>
+                        </div>
+
+
+                        <div class="add-load-input">
+
+                            <input type="text" class="add-load-input-input" name="dropoff_address" placeholder="Address" ng-model="dropoff_address" ng-minlength="5" ng-maxlength="50" required />            
+                        </div>
+                        <div ng-messages="userForm.dropoff_address.$invalid && !userForm.dropoff_address.$pristine && userForm.dropoff_address.$error" class="validation_error" role="alert">
+                            <span ng-message="required">You did not enter a address</span>
+                            <span ng-message="minlength">Address is too short</span>
+                            <span ng-message="maxlength">Address is too long</span>
+                        </div>
+
+                        <div class="add-load-input">
+                            <input class="add-load-input-input" type="number" placeholder="Zip Code" ng-minlength="5" ng-maxlength="5" name="dropoff_zipcode" ng-model="dropoff_zipcode" ng-required="true">
+                        </div>
+                        <div ng-messages="userForm.dropoff_zipcode.$invalid && !userForm.dropoff_zipcode.$pristine && userForm.dropoff_zipcode.$error" class="validation_error" role="alert">
+                            <div ng-message="required">You did not enter a Zip Code.</div>
+                            <div ng-message="minlength">This field must be valid Zip Code.</div>
+                            <div ng-message="maxlength">This field can be at most 5 characters long.</div>
+                        </div>
+
+                        <div class="add-load-panel-heding"> Pay Via </div>
+                        <div class="add-load-grid">
+                            <ul>
+                                <li class="radio">
+
+                                    <label for="radio-1" class="radio-label"><input id="radio-1" name="radio" type="radio" value="1" ng-init="payvia = '1'" ng-model="payvia"  ng-checked="true"> By Cheque</label>
+                                </li>
+                                <li class="radio">
+
+                                    <label  for="radio-2" class="radio-label"><input id="radio-2" name="radio" type="radio" value="2" ng-model="payvia"> Credit Card</label>
+                                </li>
+                                <li class="radio">
+
+                                    <label for="radio-3" class="radio-label"><input id="radio-3" name="radio" type="radio" value="3" ng-model="payvia"> Paypal</label>
+                                </li>
+                                <li class="radio">
+
+                                    <label  for="radio-4" class="radio-label"><input id="radio-4" name="radio" type="radio" value="4" ng-model="payvia"> Quick Pay</label>
+                                </li>
+                                <li class="radio">
+
+                                    <label  for="radio-5" class="radio-label"><input id="radio-5" name="radio" type="radio" value="5" ng-model="payvia"> Bank of America</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="add-load-grid-last">
+                            <input type="checkbox" ng-model="agreecheck" id="test2" checked="checked" required/>
+                            <label for="test2">By posting the load, you accept our <span class="red"> Term of Service.</span></label>
+                        </div>
+                        <div ng-messages="userForm.agreecheck.$invalid && !userForm.agreecheck.$pristine && userForm.agreecheck.$error" class="validation_error" role="alert">
+                            <div ng-message="required">You did not enter a Zip Code.</div>
+                            <div ng-message="minlength">This field must be valid Zip Code.</div>
+                            <div ng-message="maxlength">This field can be at most 10 characters long.</div>
+                        </div>
+
+                        <!--                        <div class="add-load-table">
+                                                    <div class="fee-break-btn-table-cell">
+                                                        <div class="continue">
+                                                            <button type="reset" class="cbutton cbutton--effect-boris"> Cancel </button>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
+                        <div class="fee-break-btn-table2">
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="continue">
+                                    <button type="reset" class="cbutton cbutton--effect-boris"> Cancel </button>
+                                </div>
+                            </div>
+                            <div class="fee-break-btn-table-cell2">
+                                <div class="input-group-signup3">
+                                    <button class="cbutton cbutton--effect-boris"> Submit </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<!--<link rel="stylesheet" href="assets/js/jquery-ui.js"/>-->
+<script type="text/javascript" src="assets/js/jquery-ui.js"></script> 
+<script>
+//$(".datepicker").datepicker({
+//dateFormat: "dd-mm-yy",
+////minDate: 0
+//});
+//$(document).on('change','.datepicker',function(){
+//    alert($(this).val());
+//    var date = $(this).val();
+//    $('.jq').attr('new-value',date);
+//});
+</script>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" />
+<link rel="stylesheet" href="assets/css/layout.css"/>
+<link rel="stylesheet" href="assets/css/menu.css"/>
+<link rel="stylesheet" href="assets/css/ionic.min.css"/>
+<link rel="stylesheet" href="assets/css/layout-responsive.css"/>
+<link rel="stylesheet" href="assets/css/search-style.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function($){
+	//open the lateral panel
+	$('.cd-btn').on('click', function(event){
+		event.preventDefault();
+		$('.cd-panel').addClass('is-visible');
+	});
+	//clode the lateral panel
+	$('.cd-panel').on('click', function(event){
+		if( $(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close') ) { 
+			$('.cd-panel').removeClass('is-visible');
+			event.preventDefault();
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div class="gradient"> 
+  <!--<div class="home-menu-icon"> <i class="ion-navicon cd-btn"></i> </div>
+  <div class="cd-panel from-left">
+    <div class="cd-panel-container">
+      <div class="menu-logo"> wisoid </div>
+      <!----- Logo----> 
+  <!--
+      <div class="menu-bg">
+        <ul>
+          <li>
+            <div class="menu-li-left"> <img src="assets/images/home.png"> </div>
+            <div class="menu-li-right"> Home </div>
+          </li>
+          <li> <a href="#">
+            <div class="menu-li-left"> <img src="assets/images/doc.png"> </div>
+            <div class="menu-li-right" ng-click="isShowRightContent = !isShowRightContent;isShowSideBarMobile = false;"> My Document </div>
+            </a> </li>
+          <li>
+            <div class="menu-li-left"><img src="assets/images/refer.png"> </div>
+            <div class="menu-li-right">Refer And Earn $10 </div>
+          </li>
+          <li>
+            <div class="menu-li-left"><img src="assets/images/livehelp.png"> </div>
+            <div class="menu-li-right"> Live Help </div>
+          </li>
+          <li>
+            <div class="menu-li-left"><img src="assets/images/notification.png"> </div>
+            <div class="menu-li-right"> Notification </div>
+          </li>
+          <li>
+            <div class="menu-li-left"> <img src="assets/images/termanduse.png"></div>
+            <div class="menu-li-right"> Term and Use </div>
+          </li>
+          <li>
+            <div class="menu-li-left"> <img src="assets/images/signout.png"></div>
+            <div class="menu-li-right"> Sign Out </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- cd-panel-container ----------- 
+  </div>--> 
+  <!-- cd-panel -->
+  
+  <div class="header-bg">
+     <div class="header-cell"><a ng-href="#!/dashboard"> <i class="ion-chevron-left"></i></a></div>
+    <div class="header-cell">My Payments</div>
+  </div>
+  <div class="grid-full">
+    <div class="home-container">
+      <div class="grid-home text-center">
+        <div class="login-top-icon"> <img src="assets/images/logo.png"/> </div>
+      </div>
+      <div class="grid">
+        <div class="load-background-white">
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Load No. </div>
+            <div class="load-grid-form-right">
+              <div class="">LI9091 </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Customer Name </div>
+            <div class="load-grid-form-right">
+              <div class="">Sarah </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Amount </div>
+            <div class="load-grid-form-right">
+              <div class="">$2500 </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Paid Via </div>
+            <div class="load-grid-form-right">
+              <div class="">Com Data </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Cheque No. </div>
+            <div class="load-grid-form-right">
+              <div class="">12365478965423 </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Completed On </div>
+            <div class="load-grid-form-right">
+              <div class="">25/1/2017 </div>
+            </div>
+          </div>
+        </div>
+        <div class="load-background-white">
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Load No. </div>
+            <div class="load-grid-form-right">
+              <div class="">LI90900 </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Customer Name </div>
+            <div class="load-grid-form-right">
+              <div class="">Ryan </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Amount </div>
+            <div class="load-grid-form-right">
+              <div class="">$2500 </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Paid Via </div>
+            <div class="load-grid-form-right">
+              <div class="">Paypal </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Paypal No.</div>
+            <div class="load-grid-form-right">
+              <div class="">1234569852 </div>
+            </div>
+          </div>
+          <div class="load-grid-form">
+            <div class="load-grid-form-left"> <span>:</span> Completed On </div>
+            <div class="load-grid-form-right">
+              <div class="">15/1/2017 </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$('.file-input').change(function(){
+    var curElement = $(this).parent().parent().find('.image');
+    console.log(curElement);
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        curElement.attr('src', e.target.result);
+    };
+
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+});
+</script> 
+<script type="text/javascript" src="assets/js/search.js"></script>
+</body>
+</html>

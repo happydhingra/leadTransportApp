@@ -1,0 +1,171 @@
+<div class="gradient" ng-controller="profile">
+    <div class="header-bg">
+        <div class="header-cell"><a ng-href="#!/dashboard"> <i class="ion-chevron-left"></i></a></div> 
+        <div class="header-cell">Profile</div>
+    </div>
+    <div class="grid-full">
+        <div class="home-container">
+            <div class="grid-home text-center">
+                <div class="login-top-icon"> <img src="assets/images/logo.png"/> </div>
+                <div class="profile-profile">
+
+                    <div class="image-outer">
+
+                        <div class="imageWrapper" ng-controller="updateimageCtrl">
+                            <button class="file-upload">
+                                <!--<input type="file" class="file-input" ng-change="updateImage()" ng-model="asd">-->
+                                <input type = "file" class="file-input"  file-model-profile = "myFile"  onchange="angular.element(this).scope().uploadFile()"/>
+                                <i class="ion-ios-compose-outline"></i>
+                            </button>
+                            <button ng-click = "uploadFile()">upload me</button>
+                            <img class="imagess" src="{{profile_image}}"> 
+
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div ng-if="invalid_message" class="custom_error">{{invalid_message}}</div>
+                    <div ng-if="message" class="message_success">{{message}}</div>
+                </div>
+            </div>
+
+            <form name="userForm" ng-submit="submitForm()" method="post" nonvalidate>
+                <div class="grid">
+                    <div class="load-detail-heading">
+                        <div class="load-detail-heading-div">
+                            <div class="load-content"> Basic Details </div>
+                        </div>
+                    </div>
+                    <div class="load-background-white">
+
+                        <div class="load-grid-form">
+                            <div class="grid-form-right">
+                                <i id="first_name_i" class="ion-ios-compose-outline" ng-click="showHide('first_name')"></i>
+                            </div>
+
+                            <div class="grid-form-left">
+                                <div class="grid-form-left-top">{{first_name}} </div>
+                                <div class="grid-form-left-bottom">
+                                    <input type="text" id="first_name" class="hide" name="first_name" ng-model="first_name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="load-grid-form">
+                            <div class="grid-form-right">
+                                <i id="last_name_i" class="ion-ios-compose-outline"  ng-click="showHide('last_name')"></i>
+                            </div>
+                            <div class="grid-form-left">
+                                <div class="grid-form-left-top">{{last_name}}</div>
+                                <div class="grid-form-left-bottom">
+                                    <input id="last_name" name="last_name" class="hide" ng-model="last_name" type="text" />
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="load-grid-form" style="background-color: rgba(90, 83, 83, 0.18);">
+                            <div class="grid-form-right">
+                                <!--<i id="email_i" class="ion-ios-compose-outline" ng-click="showHide('email')"></i>-->
+                            </div>
+                            <div class="grid-form-left">
+                                <div class="grid-form-left-top">{{contact_number}}</div>
+                                <div class="grid-form-left-bottom">
+                                    <input id="mobile_no" name="mobile_no" class="hide" ng-model="mobile_no" type="text" disabled="disabled"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="load-grid-form" ng-if="role_cond === '4'">
+                            <div class="grid-form-right">
+                                <i id="last_name_i" class="ion-ios-compose-outline"  ng-click="showHide('telephone')"></i>
+                            </div>
+                            <div class="grid-form-left">
+                                <div class="grid-form-left-top">{{telephone}}</div>
+                                <div class="grid-form-left-bottom">
+                                    <input id="telephone" name="telephone" placeholder="Telephone"  class="hide" ng-model="$parent.telephone" type="text" />
+                                </div>    
+                            </div>
+                        </div>
+                        
+                        <div class="load-grid-form" style="background-color: rgba(90, 83, 83, 0.18);">
+                            <div class="grid-form-right">
+                                <!--<i id="email_i" class="ion-ios-compose-outline" ng-click="showHide('email')"></i>-->
+                            </div>
+                            <div class="grid-form-left">
+                                <div class="grid-form-left-top">{{email}} </div>
+                                <div class="grid-form-left-bottom">
+                                    <input id="email" name="email" class="hide" ng-model="email" type="text" ng-disabled='true' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="load-grid-form">
+                            <div class="grid-form-right">
+                                <i id="last_name_i" class="ion-ios-compose-outline"  ng-click="showHide('address')"></i>
+                            </div>
+                            <div class="grid-form-left">
+                                <!--<div class="grid-form-left-top" ng-if="addresss">{{address}}</div>-->
+                                <div class="grid-form-left-top" ng-if="address">{{address}}</div>
+                                <div class="grid-form-left-bottom">
+                                    <input id="address" name="address" placeholder="Enter Address" class="hide" ng-model="address" type="text" />
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="load-grid-form">
+                            <div class="grid-form-right">
+                                <i id="last_name_i" class="ion-ios-compose-outline"  ng-click="showHide('zip_code')"></i>
+                            </div>
+                            <div class="grid-form-left">
+                                <div class="grid-form-left-top">{{zip_code}}</div>
+                                <div class="grid-form-left-bottom">
+                                    <input id="zip_code" name="zip_code" placeholder="Zip Code"  class="hide" ng-model="zip_code" type="text" />
+                                </div>    
+                            </div>
+                        </div>
+
+                    </div>
+                    <div ng-if="role_cond == '4'">
+                        <div class="load-detail-heading">
+                            <div class="load-detail-heading-div">
+                                <div class="load-content"> Vehicle Details</div>
+                            </div>
+                        </div>
+                        <div class="load-background-white">
+                            <div class="load-grid-form">
+                                <div class="load-grid-form-left"> <span>:</span>Vehicle Name </div>
+                                <div class="load-grid-form-right"> {{vehicle_name}} </div>
+                            </div>
+                            <div class="load-grid-form">
+                                <div class="load-grid-form-left"> <span>:</span>Vehicle Number</div>
+                                <div class="load-grid-form-right"> {{vehicle_number}} </div>
+                            </div>
+                            <div class="load-grid-form">
+                                <div class="load-grid-form-left"> <span>:</span> Additional Details </div>
+                                <div class="load-grid-form-right"> {{additional_details}} </div>
+                            </div>
+                            <div class="load-grid-form">
+                                <div class="load-grid-form-left"> <span>:</span> Insurance Papers (PDF) </div>
+                                <div class="load-grid-form-right"> Insurance1.pdf </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="input-group-signup2 profile-margin">
+                    <button class="cbutton cbutton--effect-boris" ng-click=""> Submit </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+//    $('.file-input').change(function () {
+//    var curElement = $(this).parent().parent().find('.image');
+//    console.log(curElement);
+//    var reader = new FileReader();
+//    reader.onload = function (e) {
+//    // get loaded data and render thumbnail.
+//    curElement.attr('src', e.target.result);
+//    };
+//    // read the image file as a data URL.
+//    reader.readAsDataURL(this.files[0]);
+//    });
+</script>

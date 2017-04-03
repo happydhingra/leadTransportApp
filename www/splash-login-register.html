@@ -1,0 +1,63 @@
+<div class="gradient" ng-controller="splash">
+    <div class="splash">
+        <div class="grid">
+            <div class="login-top-bg">
+                <div class="login-top-icon"><img src="assets/images/logo.png"></div>
+            </div>
+            <div class="intro-page">
+                <div class="skip"> <a ng-href="javascript:void(0)" ng-click="skip()">SKIP</a></div>
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <h1>{{page_name}}</h1>
+                        <p>{{str1}}</p>
+                    </div>
+                    <div class="item">
+                        <h1>{{page_name}}</h1>
+                        <p>{{str2}}</p>
+                    </div>
+                    <div class="item">
+                        <h1>{{page_name}}</h1>
+                        <p>{{str3}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fee-break-btn-table2">
+        <div class="fee-break-btn-table-cell2">
+            <div class="continue">
+                <button class="cbutton cbutton--effect-boris" ng-click="login()"> Login </button>
+            </div>
+        </div>
+        <div class="fee-break-btn-table-cell2">
+            <div class="input-group-signup3">
+                <button class="cbutton cbutton--effect-boris" ng-click="register()"> Register </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/js/owl.carousel.js"></script> 
+<script>
+                    $('.owl-carousel').owlCarousel({
+                        loop: true,
+                        margin: 20,
+                        nav: false,
+                        navigation: false,
+                        responsiveClass: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                nav: true
+                            },
+                            600: {
+                                items: 1,
+                                nav: false
+                            },
+                            1000: {
+                                items: 1,
+                                nav: true,
+                                loop: false
+                            }
+                        }
+                    })
+</script>
